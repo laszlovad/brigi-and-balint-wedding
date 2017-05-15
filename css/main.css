@@ -36,11 +36,20 @@ h3 {
   font-size: 1.5rem;
 }
 
+a {
+  text-decoration: none;
+  color: #2C8C99;
+}
+
+a:hover {
+  color: #326771;
+  transition: color .15s ease-in-out;
+}
+
 /* Single-direction margin declaration to establish vertical rhythm. */
-h1,h2,h3,h4,h5,h6,hgroup,
-ul,ol,dd,
-p,figure,
-pre,table,fieldset,hr,
+h1,h2,h3,
+ul,ol,
+p,
 img,
 section, 
 .cover, .blurb {
@@ -137,6 +146,13 @@ section,
   display: block;
   font-family: 'Muli', sans-serif;
   
+}
+
+/* This is a code loan, refactor it when have the chance. */
+#gift-reassure {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.125rem;
+  margin-top: .5rem;
 }
 
 .blurb::after {
@@ -265,25 +281,33 @@ section,
 
 =============================*/
 
+/* This entire section is a code loan, refactor to flexbox when have the chance. */
 footer {
-  height: 15vh;
+  height: 10vh;
   width: 100vw;
   background-color: #bdbdbd;
   color: #fff;
   font-family: 'Muli', sans-serif;
   display: table;
   text-align: center;
+  font-size: .875rem;
 }
 
-footer p {
+.footer-wrapper {
   display: table-cell;
   vertical-align: middle;
+  padding: .5rem 1rem;
+}
+
+footer small {
+  display: block;
+  line-height: 1.5;
 }
 
 @media (min-width: 768px) {
 
   footer {
-    height: 10vh;
+    min-height: 7vh;
   }
 
 }
