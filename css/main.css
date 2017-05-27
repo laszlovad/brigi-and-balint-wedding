@@ -1,11 +1,17 @@
 /* =============================
-
-    GENERAL STYLES
-
+      GENERAL STYLES
 =============================*/
 
 * {
   box-sizing: border-box;
+}
+
+/* Single-direction margin declaration to establish vertical rhythm. */
+h1,h2,h3,
+ul,ol,
+p,
+img {
+    margin-bottom: 1.5rem;
 }
 
 body {
@@ -16,14 +22,18 @@ body {
   color: #444349;
 }
 
-section {
+.locations,
+.program,
+.gifts,
+.faq,
+.contact {
   width: 95%;
   margin: 1.5rem auto;
   padding: .5rem 1rem;
   text-align: center;
 }
 
-h1, 
+h1,
 h2 {
   font-family: 'Great Vibes', cursive;
 }
@@ -38,7 +48,7 @@ h3 {
 
 a {
   text-decoration: none;
-  color: #2C8C99;
+  color: #2c8c99;
 }
 
 a:hover {
@@ -46,42 +56,60 @@ a:hover {
   transition: color .15s ease-in-out;
 }
 
-/* Single-direction margin declaration to establish vertical rhythm. */
-h1,h2,h3,
-ul,ol,
-p,
-img,
-section, 
-.cover, .blurb {
-    margin-bottom: 1.5rem;
-}
-
 /* =============================
-
-    HEADER STYLES
-
+        HEADER STYLES
 =============================*/
 
- .cover {
-  background: url('../images/brigi-balint-cover-4.jpg') no-repeat center;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.cover {
+  background: url('../images/brigi-balint-cover-4.jpg') no-repeat center/cover;
+  display: table;
   text-align: center;
   height: 100vh;
- }
+  width: 100vw;
+}
+
+.hero-text-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
 
 .hero-text {
+  margin: 0 auto;
   padding: .625rem;
   color: hsla(0,0%,100%,.9);
   background: hsla(100,0%,0%,.5);
 }
 
-.tagline {
-  display: block;
-  font-size: 1.25rem;
+.hero-text h1 {
+  font-size: 3.15rem;
+  color: #73cec8;
+  margin-bottom: 0; /* To negate the effect of the single-direction margin declaration. */
 }
+
+@media (min-width: 768px) {
+
+  .hero-text {
+    padding: 1.25rem;
+    border-radius: 4px;
+    width: 70%;
+  }
+
+  .hero-text h1 {
+    font-size: 7rem;
+  }
+
+}
+
+.tagline {
+  font-size: 1.25rem;
+  letter-spacing: .15rem;
+ }
+
+ @media (min-width: 768px) {
+   .tagline {
+     text-transform: uppercase;
+   }
+ }
 
 .tagline::after {
   display: block;
@@ -90,12 +118,6 @@ section,
   height: 1px;
   width: 12.515625rem;
   margin: .5rem auto;
-}
-
-.hero-text h1 {
-  font-size: 3.15rem;
-  color: #73cec8;
-  margin-bottom: 0;
 }
 
 .date {
@@ -115,23 +137,8 @@ section,
   margin: 0 .5rem;
 }
 
-@media (min-width: 768px) {
-
-  .hero-text {
-    padding: 1.25rem;
-    border-radius: 4px;
-  }
-
-  .hero-text h1 {
-    font-size: 7rem;
-  }
-
-}
-
 /* =============================
-
-  LOCATIONS AND GIFTS STYLES
-
+       LOCATIONS STYLES
 =============================*/
 
 .blurb img {
@@ -142,17 +149,8 @@ section,
   font-weight: 700;
 }
 
-.blurb span {
-  display: block;
+.blurb div {
   font-family: 'Muli', sans-serif;
-  
-}
-
-/* This is a code loan, refactor it when have the chance. */
-#gift-reassure {
-  font-family: 'Libre Baskerville', serif;
-  font-size: 1.125rem;
-  margin-top: .5rem;
 }
 
 .blurb::after {
@@ -166,15 +164,10 @@ section,
 
 @media (min-width: 768px) {
 
-  .blurb-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
   .blurb {
-    width: 33.3%;
+    display: inline-block;
+    vertical-align: middle;
+    width: 30%;
     padding: 1.5rem;
     margin: .5rem;
   }
@@ -186,37 +179,29 @@ section,
 }
 
 /* =============================
-
-    PROGRAM AND FAQ STYLES
-
+        PROGRAM STYLES
 =============================*/
 
-.program,
-.faq {
-  background: url('../images/restaurant.png') repeat center;
-  color: #fff;
+.program {
   width: 100vw;
   text-align: left;
+  background: url('../images/restaurant.png') repeat center;
+  color: #fff;
+  font-family: 'Muli', sans-serif;
 }
 
-.program h2,
-.faq h2 {
+.program h2 {
   margin-top: 1rem;
   text-align: center;
-}
-
-.faq h3 {
-  text-align: center;
+  font-family: 'Great Vibes', cursive;
 }
 
 .program p {
   font-style: italic;
-  font-family: 'Muli', sans-serif;
 }
 
 .program ul {
   letter-spacing: .025rem;
-  font-family: 'Muli', sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -228,20 +213,38 @@ section,
 
 }
 
+/* =============================
+        GIFTS STYLES
+=============================*/
+
+.gifts img {
+  height: 7.5rem;
+}
+.gifts p:last-child {   /* To even out the bottom and top margins of this section. */
+  margin-bottom: 0;
+}
+
+/* =============================
+        FAQ STYLES
+=============================*/
+
+.faq {
+  background: url('../images/restaurant.png') repeat center;
+  color: #fff;
+  width: 100vw;
+  text-align: center;
+}
+
+.faq h2 {
+  margin-top: 1rem;
+}
+
 .faq p {
   font-family: 'Muli', sans-serif;
-  margin-bottom: .5rem;
+  text-align: left;
 }
 
-.faq strong {
-  font-weight: 700;
-}
-
-.qa {
-  margin-bottom: 1.5rem;
-}
-
-.qa-column::after {
+.question-group::after {
   content: "";
   display: block;
   height: .1875rem;
@@ -252,36 +255,33 @@ section,
 
 @media (min-width: 768px) {
 
-  .qa-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-  }
-
-  .qa-column {
-    width: 33.3%;
+  .question-group {
+    display: inline-block;
+    width: 30%;
+    vertical-align: top;
     padding: 1.5rem;
     margin: .5rem;
   }
 
-  .qa-column::after {
+  .question-group::after {
     display: none;
   }
 
-  .qa-column h3 {
+  .question-group h3 {
     text-align: left;
   }
 
 }
 
+.question {
+  font-weight: 700;
+  margin-bottom: .5rem;
+}
+
 /* =============================
-
         FOOTER STYLES
-
 =============================*/
 
-/* This entire section is a code loan, refactor to flexbox when have the chance. */
 footer {
   height: 10vh;
   width: 100vw;
@@ -299,8 +299,11 @@ footer {
   padding: .5rem 1rem;
 }
 
+footer p {
+  margin-bottom: 0;
+}
+
 footer small {
-  display: block;
   line-height: 1.5;
 }
 
@@ -311,38 +314,3 @@ footer small {
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
